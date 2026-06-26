@@ -1,9 +1,14 @@
 pipeline {
     agent any
     stages {
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
         stage('Deploy') {
             steps {
-                sh 'cp /home/ubuntu/jenkins-cicd-demo/index.html /var/www/html/index.html'
+                sh 'cp index.html /var/www/html/index.html'
             }
         }
     }
